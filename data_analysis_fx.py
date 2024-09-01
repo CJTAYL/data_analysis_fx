@@ -5,9 +5,9 @@ Functions to assist with data analysis tasks related to finance and banking
 import numpy as np 
 import random 
 
-def calc_IQR(number_list):
+def detect_outliers(number_list):
     """
-    Calculate the inter-quartile range (IQR) of a list of numbers
+    Calculate the inter-quartile range (IQR), lower fence, and upper fence of a list of numbers to help identify outliers
 
     Parameters:
     - number_list = list of numbers 
