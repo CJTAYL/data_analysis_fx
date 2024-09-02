@@ -19,11 +19,35 @@ def calculate_IQR(number_list):
     """
     q1 = np.percentile(number_list, 25) 
     q3 = np.percentile(number_list, 75)
-    iqr = q3 - q1 
-    lower_fence = q1 - (1.5 * iqr)
-    upper_fence = q3 + (1.5 * iqr)
+    iqr = float(q3 - q1)
+    lower_fence = float(q1 - (1.5 * iqr))
+    upper_fence = float(q3 + (1.5 * iqr))
 
     return iqr, lower_fence, upper_fence
+
+
+def five_number_summary(number_list):
+    """ 
+    Calculate the five number summary for a list of numbers
+
+    Parameters:
+    - number_list = list of numbers
+
+    Returns: 
+    - minimum = smallest value in the list
+    - q1 = first quartile 
+    - q2 = second quartile (i.e., median)
+    - q3 = third quartile 
+    -maximum = largest value in the list 
+    """
+
+    minimum = float(min(number_list))
+    q1 = float(np.percentile(number_list, 25))
+    q2 = float(np.percentile(number_list, 50))
+    q3 = float(np.percentile(number_list, 75))
+    maximum = float(max(number_list))
+
+    return minimum, q1, q2, q3, maximum 
 
 
 def generate_random_cc_numbers(n):
