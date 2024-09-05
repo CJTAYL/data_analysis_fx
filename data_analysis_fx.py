@@ -27,17 +27,24 @@ def calculate_IQR(number_list):
     return iqr, lower_fence, upper_fence
 
 
-def column_stack(file_path):
+def column_stack(path_to_orig_csv, path_to_new_csv):
     """ 
     Convert the columns of an exported SQL table into the first row of a Pandas dataframe
+
+    Parameters
+    - path_to_orig_csv = file path to downloaded table
+    - path_to_new_csv = file path for new csv + name
+
+    Returns 
+    - New CSV file with column names of original CSV as first column
     """ 
-    df1 = pd.read_csv(file_path)
+    df1 = pd.read_csv(path_to_orig_csv)
     df2 = pd.DataFrame()
 
     new_column_data = df1.columns
     df2['columns'] = new_column_data 
 
-    df2.to_csv('/Users/christopher_taylor/Desktop/updated_destination.csv', index=False)
+    df2.to_csv(path_to_new_csv, index=False)
 
     print('CSV updated successfully')
 
