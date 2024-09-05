@@ -3,6 +3,7 @@ Functions to assist with data analysis tasks related to finance and banking
 """ 
 
 import numpy as np 
+import pandas as pd
 import random 
 
 def calculate_IQR(number_list):
@@ -24,6 +25,21 @@ def calculate_IQR(number_list):
     upper_fence = float(q3 + (1.5 * iqr))
 
     return iqr, lower_fence, upper_fence
+
+
+def column_stack(file_path):
+    """ 
+    Convert the columns of an exported SQL table into the first row of a Pandas dataframe
+    """ 
+    df1 = pd.read_csv(file_path)
+    df2 = pd.DataFrame()
+
+    new_column_data = df1.columns
+    df2['columns'] = new_column_data 
+
+    df2.to_csv('/Users/christopher_taylor/Desktop/updated_destination.csv', index=False)
+
+    print('CSV updated successfully')
 
 
 def five_number_summary(number_list):
@@ -87,3 +103,5 @@ def mask_cc_digits(number):
     else: 
         return('Credit card number has more than 16 digits')
 
+
+column_stack('/Users/christopher_taylor/Desktop/unit_test.csv')
