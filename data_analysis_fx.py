@@ -110,5 +110,3 @@ def mask_cc_digits(number):
     else: 
         return('Credit card number has more than 16 digits')
 
-
-column_stack('/Users/christopher_taylor/Desktop/unit_test.csv')
