@@ -49,6 +49,20 @@ def column_stack(path_to_orig_csv, path_to_new_csv):
     print('CSV updated successfully')
 
 
+def convert_USD(value):
+    """
+    Convert a value into format for United States Dollars (USD)
+
+    Parameters:
+    - value = number to be converted 
+
+    Returns:
+    - converted_value = value in USD
+    """
+    converted_value = '${:,.2f}'.format(value)
+    return converted_value
+
+
 def five_number_summary(number_list):
     """ 
     Calculate the five number summary for a list of numbers
